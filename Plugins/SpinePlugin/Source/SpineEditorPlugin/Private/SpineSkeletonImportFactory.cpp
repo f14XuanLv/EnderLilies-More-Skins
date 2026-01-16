@@ -72,20 +72,25 @@ void LoadAtlas (const FString& Filename, const FString& TargetPath) {
 }
 
 UObject* USpineSkeletonAssetFactory::FactoryCreateFile (UClass * InClass, UObject * InParent, FName InName, EObjectFlags Flags, const FString & Filename, const TCHAR* Parms, FFeedbackContext * Warn, bool& bOutOperationCanceled) {
-	FString name(InName.ToString());
-	name.Append("-data");
-	
-	USpineSkeletonDataAsset* asset = NewObject<USpineSkeletonDataAsset>(InParent, InClass, FName(*name), Flags);
-	TArray<uint8> rawData;
-	if (!FFileHelper::LoadFileToArray(rawData, *Filename, 0)) {
-		return nullptr;
-	}
-	asset->SetSkeletonDataFileName(FName(*Filename));
-	asset->SetRawData(rawData);
-	
-	const FString longPackagePath = FPackageName::GetLongPackagePath(asset->GetOutermost()->GetPathName());
-	LoadAtlas(Filename, longPackagePath);
-	return asset;
+    // 1. Obtain the current package container directly (e.g., p0007_Lily).
+    UPackage* SharedPackage = InParent->GetOutermost();
+    SharedPackage->FullyLoad();
+
+    // 2. Construct the internal object name (e.g., p0007_Lily-data).
+    FString ObjectName = InName.ToString() + TEXT("-data");
+
+    // 3. Create the SkeletonData object within the same package to achieve the original multi-object per package (.uasset) structure.
+    USpineSkeletonDataAsset* asset = NewObject<USpineSkeletonDataAsset>(SharedPackage, InClass, FName(*ObjectName), Flags);
+    TArray<uint8> rawData;
+    if (!FFileHelper::LoadFileToArray(rawData, *Filename, 0)) {
+        return nullptr;
+    }
+    asset->SetSkeletonDataFileName(FName(*Filename));
+    asset->SetRawData(rawData);
+
+    const FString folderPath = FPackageName::GetLongPackagePath(SharedPackage->GetPathName());
+    LoadAtlas(Filename, folderPath);
+    return asset;
 }
 
 bool USpineSkeletonAssetFactory::CanReimport (UObject* Obj, TArray<FString>& OutFilenames) {

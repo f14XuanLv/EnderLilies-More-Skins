@@ -62,22 +62,32 @@ bool USpineAtlasAssetFactory::FactoryCanImport (const FString& Filename) {
 }
 
 UObject* USpineAtlasAssetFactory::FactoryCreateFile (UClass * InClass, UObject * InParent, FName InName, EObjectFlags Flags, const FString & Filename, const TCHAR* Parms, FFeedbackContext * Warn, bool& bOutOperationCanceled) {
-	FString rawString;
-	if (!FFileHelper::LoadFileToString(rawString, *Filename)) {
-		return nullptr;
-	}
-	
-	FString currentSourcePath, filenameNoExtension, unusedExtension;
-	const FString longPackagePath = FPackageName::GetLongPackagePath(InParent->GetOutermost()->GetPathName());
-	FPaths::Split(UFactory::GetCurrentFilename(), currentSourcePath, filenameNoExtension, unusedExtension);
-	FString name(InName.ToString());
-	name.Append("-atlas");
-	
-	USpineAtlasAsset* asset = NewObject<USpineAtlasAsset>(InParent, InClass, FName(*name), Flags);
-	asset->SetRawData(rawString);
-	asset->SetAtlasFileName(FName(*Filename));
-	LoadAtlas(asset, currentSourcePath, longPackagePath);
-	return asset;
+    FString rawString;
+    if (!FFileHelper::LoadFileToString(rawString, *Filename)) {
+        return nullptr;
+    }
+
+    // 1. Get the path of the folder currently being imported into (e.g., .../Characters/p0007_Lily).
+    const FString folderPath = FPackageName::GetLongPackagePath(InParent->GetOutermost()->GetPathName());
+    
+    // 2. Resolve the full package path. Note: InName is already the filename (e.g., "p0007_Lily"). 
+    // Use InParent as the package container directly to avoid creating redundant sub-folders.
+    UPackage* SharedPackage = InParent->GetOutermost();
+    SharedPackage->FullyLoad();
+
+    // 3. Construct the internal object name (e.g., p0007_Lily-atlas).
+    FString ObjectName = InName.ToString() + TEXT("-atlas");
+
+    // 4. Create the asset object, ensuring its Outer is the package itself to allow a multi-object asset structure.
+    USpineAtlasAsset* asset = NewObject<USpineAtlasAsset>(SharedPackage, InClass, FName(*ObjectName), Flags);
+    asset->SetRawData(rawString);
+    asset->SetAtlasFileName(FName(*Filename));
+
+    FString currentSourcePath, filenameNoExtension, unusedExtension;
+    FPaths::Split(Filename, currentSourcePath, filenameNoExtension, unusedExtension);
+
+    LoadAtlas(asset, currentSourcePath, folderPath); 
+    return asset;
 }
 
 bool USpineAtlasAssetFactory::CanReimport (UObject* Obj, TArray<FString>& OutFilenames) {
@@ -118,15 +128,27 @@ EReimportResult::Type USpineAtlasAssetFactory::Reimport (UObject* Obj) {
 }
 
 UTexture2D* resolveTexture (USpineAtlasAsset* Asset, const FString& PageFileName, const FString& TargetSubPath) {
-	FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
-	
-	TArray<FString> fileNames;
-	fileNames.Add(PageFileName);
-		
-	TArray<UObject*> importedAsset = AssetToolsModule.Get().ImportAssets(fileNames, TargetSubPath);
-	UTexture2D* texture = (importedAsset.Num() > 0) ? Cast<UTexture2D>(importedAsset[0]) : nullptr;
-	
-	return texture;
+	// 1. Calculate the expected internal project path for the texture.
+    FString TextureName = FPaths::GetBaseFilename(PageFileName);
+    FString FullDestPath = TargetSubPath / TextureName;
+
+    // 2. Check if the texture asset already exists in memory or on disk. 
+    // If it exists, return it immediately to prevent triggering ImportAssets, 
+    // effectively bypassing the "Overwrite existing asset?" confirmation dialog.
+    UTexture2D* ExistingTexture = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, *FullDestPath));
+    if (ExistingTexture) {
+        return ExistingTexture;
+    }
+
+    FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
+
+    TArray<FString> fileNames;
+    fileNames.Add(PageFileName);
+
+    TArray<UObject*> importedAsset = AssetToolsModule.Get().ImportAssets(fileNames, TargetSubPath);
+    UTexture2D* texture = (importedAsset.Num() > 0) ? Cast<UTexture2D>(importedAsset[0]) : nullptr;
+    
+    return texture;
 }
 
 void USpineAtlasAssetFactory::LoadAtlas (USpineAtlasAsset* Asset, const FString& CurrentSourcePath, const FString& LongPackagePath) {

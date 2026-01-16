@@ -67,6 +67,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float DefaultMix = 0;
 
+	// Custom property DefaultScale appended to the USpineSkeletonDataAsset class in SpinePlugin by the ENDER LILIES development team.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float DefaultScale = 1.0f;
+
+	// Custom property DefaultSkins appended to the USpineSkeletonDataAsset class in SpinePlugin by the ENDER LILIES development team.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FString> DefaultSkins;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FSpineAnimationStateMixData> MixData;
 
