@@ -42,6 +42,57 @@
 
 #define LOCTEXT_NAMESPACE "Spine"
 
+// Add helper function at the top of the file to set default properties for Lily
+static void SetupLilyDefaultProperties(USpineSkeletonDataAsset* Asset, FString MainSkinName) {
+    // 1. Set basic properties
+    Asset->DefaultMix = 0.1f;
+    Asset->DefaultScale = 1.196f;
+
+    // 2. Set Lily standard skin array
+    Asset->DefaultSkins.Empty();
+    Asset->DefaultSkins.Add(TEXT("_common"));
+    Asset->DefaultSkins.Add(MainSkinName); // Dynamically passed in, e.g., p0007_Lily
+    Asset->DefaultSkins.Add(TEXT("_Meat_Head_0"));
+
+    // 3. Fill 26 MixData entries
+    Asset->MixData.Empty();
+    auto AddMix = [&](FString From, FString To, float Mix) {
+        FSpineAnimationStateMixData Data;
+        Data.From = From;
+        Data.To = To;
+        Data.Mix = Mix;
+        Asset->MixData.Add(Data);
+    };
+
+    // --- Complete 26 Mix mapping table ---
+    AddMix(TEXT(""), TEXT("wall_climb_low"), 0.0f);
+    AddMix(TEXT(""), TEXT("wall_climb_high"), 0.0f);
+    AddMix(TEXT(""), TEXT("damage_start"), 0.0f);
+    AddMix(TEXT(""), TEXT("death"), 0.0f);
+    AddMix(TEXT(""), TEXT("jump_up"), 0.0f);
+    AddMix(TEXT("jump_up"), TEXT("jump_apex"), 0.2f);
+    AddMix(TEXT("jump_apex"), TEXT("jump_down"), 0.2f);
+    AddMix(TEXT("idle_turn"), TEXT("run"), 0.2f);
+    AddMix(TEXT("run_turn"), TEXT("run"), 0.05f);
+    AddMix(TEXT(""), TEXT("dive_idle"), 0.3f);
+    AddMix(TEXT("dive_forward"), TEXT("dive_up"), 0.4f);
+    AddMix(TEXT("dive_up"), TEXT("dive_forward"), 0.4f);
+    AddMix(TEXT("dive_forward"), TEXT("dive_down"), 0.4f);
+    AddMix(TEXT("dive_down"), TEXT("dive_forward"), 0.4f);
+    AddMix(TEXT(""), TEXT("dive_forward"), 0.2f);
+    AddMix(TEXT(""), TEXT("rest_sleep_loop"), 0.0f);
+    AddMix(TEXT("swim_forward"), TEXT(""), 0.4f);
+    AddMix(TEXT(""), TEXT("swim_forward"), 0.3f);
+    AddMix(TEXT("swim_idle"), TEXT(""), 0.2f);
+    AddMix(TEXT(""), TEXT("swim_idle"), 0.5f);
+    AddMix(TEXT("swim_forward"), TEXT("jump_up"), 0.0f);
+    AddMix(TEXT("swim_idle"), TEXT("jump_up"), 0.0f);
+    AddMix(TEXT("stumble"), TEXT("stumble_loop"), 0.1f);
+    AddMix(TEXT("parry_achievement"), TEXT(""), 0.2f);
+    AddMix(TEXT(""), TEXT("jump_down"), 0.2f);
+    AddMix(TEXT("liberate_stand_start"), TEXT(""), 0.0f);
+}
+
 USpineSkeletonAssetFactory::USpineSkeletonAssetFactory (const FObjectInitializer& objectInitializer): Super(objectInitializer) {
 	bCreateNew = false;
 	bEditAfterNew = true;
@@ -81,6 +132,23 @@ UObject* USpineSkeletonAssetFactory::FactoryCreateFile (UClass * InClass, UObjec
 
     // 3. Create the SkeletonData object within the same package to achieve the original multi-object per package (.uasset) structure.
     USpineSkeletonDataAsset* asset = NewObject<USpineSkeletonDataAsset>(SharedPackage, InClass, FName(*ObjectName), Flags);
+    
+    // --- SDK Lily auto-alignment logic starts ---
+    // Get filename without path for detection, e.g., "p0007_Lily.skel"
+    FString CleanFileName = FPaths::GetCleanFilename(Filename);
+    
+    // Activation prerequisite: filename strictly matches p*_Lily.skel or p*_Lily.json format
+    FString FileNameNoExt = FPaths::GetBaseFilename(Filename);
+    bool bIsLilyFile = FileNameNoExt.StartsWith(TEXT("p")) && FileNameNoExt.EndsWith(TEXT("_Lily"))
+                       && (CleanFileName.EndsWith(TEXT(".skel")) || CleanFileName.EndsWith(TEXT(".json")));
+    
+    if (bIsLilyFile) {
+        // InName is usually the filename already (without suffix), e.g., "p0007_Lily"
+        SetupLilyDefaultProperties(asset, InName.ToString());
+    }
+    // --- SDK Lily auto-alignment logic ends ---
+
+    // 4. Load binary raw data
     TArray<uint8> rawData;
     if (!FFileHelper::LoadFileToArray(rawData, *Filename, 0)) {
         return nullptr;
@@ -88,6 +156,7 @@ UObject* USpineSkeletonAssetFactory::FactoryCreateFile (UClass * InClass, UObjec
     asset->SetSkeletonDataFileName(FName(*Filename));
     asset->SetRawData(rawData);
 
+    // 5. Auto-load associated Atlas
     const FString folderPath = FPackageName::GetLongPackagePath(SharedPackage->GetPathName());
     LoadAtlas(Filename, folderPath);
     return asset;
