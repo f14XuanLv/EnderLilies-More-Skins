@@ -36,6 +36,7 @@
 #include "Developer/AssetTools/Public/IAssetTools.h"
 #include "Developer/DesktopPlatform/Public/IDesktopPlatform.h"
 #include "Developer/DesktopPlatform/Public/DesktopPlatformModule.h"
+#include "AssetImportTask.h"
 #include <string>
 #include <string.h>
 #include <stdlib.h>
@@ -117,9 +118,21 @@ void LoadAtlas (const FString& Filename, const FString& TargetPath) {
 	FString skelFile = Filename.Replace(TEXT(".skel"), TEXT(".atlas")).Replace(TEXT(".json"), TEXT(".atlas"));
 	if (!FPaths::FileExists(skelFile)) return;
 	
-	TArray<FString> fileNames;
-	fileNames.Add(skelFile);
-	AssetToolsModule.Get().ImportAssets(fileNames, TargetPath);
+	// Create an automated import task with bAutomated = true to disable UI
+	UAssetImportTask* Task = NewObject<UAssetImportTask>();
+	Task->Filename = skelFile;
+	Task->DestinationPath = TargetPath;
+	Task->bSave = true;
+	Task->bReplaceExisting = true;
+	
+	// Force silent mode if running from commandlet (Python script)
+	// We recommend silent import even in editor for smoother experience
+	Task->bAutomated = IsRunningCommandlet() || true;
+
+	TArray<UAssetImportTask*> Tasks;
+	Tasks.Add(Task);
+
+	AssetToolsModule.Get().ImportAssetTasks(Tasks);
 }
 
 UObject* USpineSkeletonAssetFactory::FactoryCreateFile (UClass * InClass, UObject * InParent, FName InName, EObjectFlags Flags, const FString & Filename, const TCHAR* Parms, FFeedbackContext * Warn, bool& bOutOperationCanceled) {

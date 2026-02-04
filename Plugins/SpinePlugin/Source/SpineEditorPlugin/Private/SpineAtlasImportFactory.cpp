@@ -36,6 +36,7 @@
 #include "Developer/AssetTools/Public/IAssetTools.h"
 #include "Developer/DesktopPlatform/Public/IDesktopPlatform.h"
 #include "Developer/DesktopPlatform/Public/DesktopPlatformModule.h"
+#include "AssetImportTask.h"
 #include <string>
 #include <string.h>
 #include <stdlib.h>
@@ -128,26 +129,62 @@ EReimportResult::Type USpineAtlasAssetFactory::Reimport (UObject* Obj) {
 }
 
 UTexture2D* resolveTexture (USpineAtlasAsset* Asset, const FString& PageFileName, const FString& TargetSubPath) {
-	// 1. Calculate the expected internal project path for the texture.
+    // 1. Calculate the expected internal project path for the texture.
     FString TextureName = FPaths::GetBaseFilename(PageFileName);
     FString FullDestPath = TargetSubPath / TextureName;
 
-    // 2. Check if the texture asset already exists in memory or on disk. 
-    // If it exists, return it immediately to prevent triggering ImportAssets, 
-    // effectively bypassing the "Overwrite existing asset?" confirmation dialog.
-    UTexture2D* ExistingTexture = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, *FullDestPath));
-    if (ExistingTexture) {
-        return ExistingTexture;
+    // 2. Check if the texture asset already exists.
+    UTexture2D* texture = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, *FullDestPath));
+
+    // 3. If not exists, perform import.
+    if (!texture) {
+        FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
+        TArray<FString> fileNames;
+        fileNames.Add(PageFileName);
+
+        // Use Task mode to support commandlet (script) execution
+        UAssetImportTask* Task = NewObject<UAssetImportTask>();
+        Task->Filename = PageFileName;
+        Task->DestinationPath = TargetSubPath;
+        Task->bAutomated = true; // Force silent mode to prevent commandlet crashes
+        Task->bSave = true;
+        Task->bReplaceExisting = true;
+
+        TArray<UAssetImportTask*> Tasks;
+        Tasks.Add(Task);
+        AssetToolsModule.Get().ImportAssetTasks(Tasks);
+
+        // Try to get the imported object again
+        texture = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, *FullDestPath));
     }
 
-    FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
+    // --- Core optimization: Enforce Lily texture properties ---
+    if (texture) {
+        FString AtlasName = Asset->GetName(); // Get the name of the Atlas asset being imported
+        
+        // Rule: Asset name starts with 'p' AND contains 'Lily' (e.g. p0007_Lily-atlas)
+        if (AtlasName.StartsWith(TEXT("p")) && AtlasName.Contains(TEXT("Lily"))) {
+            bool bModified = false;
 
-    TArray<FString> fileNames;
-    fileNames.Add(PageFileName);
+            // Set no mipmaps
+            if (texture->MipGenSettings != TMGS_NoMipmaps) {
+                texture->MipGenSettings = TMGS_NoMipmaps;
+                bModified = true;
+            }
 
-    TArray<UObject*> importedAsset = AssetToolsModule.Get().ImportAssets(fileNames, TargetSubPath);
-    UTexture2D* texture = (importedAsset.Num() > 0) ? Cast<UTexture2D>(importedAsset[0]) : nullptr;
-    
+            // Set Character LOD Group
+            if (texture->LODGroup != TEXTUREGROUP_Character) {
+                texture->LODGroup = TEXTUREGROUP_Character;
+                bModified = true;
+            }
+
+            if (bModified) {
+                texture->Modify(); // Mark object as modified
+                texture->PostEditChange(); // Notify engine that properties have changed (this rebuilds texture resources)
+            }
+        }
+    }
+
     return texture;
 }
 
