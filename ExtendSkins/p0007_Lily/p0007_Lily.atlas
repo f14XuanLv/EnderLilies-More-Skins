@@ -1,0 +1,783 @@
+
+p0007_Lily.png
+size: 1777,523
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_common/white
+  rotate: false
+  xy: 694, 209
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+p0007_Lily/Amulet
+  rotate: false
+  xy: 792, 228
+  size: 31, 44
+  orig: 31, 44
+  offset: 0, 0
+  index: -1
+p0007_Lily/Bust_00_D1
+  rotate: false
+  xy: 1340, 389
+  size: 105, 134
+  orig: 105, 134
+  offset: 0, 0
+  index: -1
+p0007_Lily/Bust_00_D3
+  rotate: false
+  xy: 420, 207
+  size: 116, 120
+  orig: 116, 120
+  offset: 0, 0
+  index: -1
+p0007_Lily/Bust_01_D1
+  rotate: false
+  xy: 1447, 393
+  size: 105, 130
+  orig: 105, 130
+  offset: 0, 0
+  index: -1
+p0007_Lily/Cat_Ear_L
+  rotate: false
+  xy: 1054, 46
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+p0007_Lily/Cat_Ear_R
+  rotate: false
+  xy: 825, 53
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_00_D1
+  rotate: false
+  xy: 1498, 66
+  size: 66, 57
+  orig: 66, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_01_D1
+  rotate: false
+  xy: 1391, 8
+  size: 66, 57
+  orig: 66, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_02_D1
+  rotate: false
+  xy: 932, 0
+  size: 66, 57
+  orig: 66, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_03_D1
+  rotate: false
+  xy: 1500, 160
+  size: 66, 57
+  orig: 66, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_04_D1
+  rotate: false
+  xy: 1568, 160
+  size: 66, 57
+  orig: 66, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_05_D1
+  rotate: false
+  xy: 1160, 105
+  size: 80, 60
+  orig: 80, 60
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_06_D1
+  rotate: false
+  xy: 1242, 126
+  size: 80, 60
+  orig: 80, 60
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_07_D1
+  rotate: false
+  xy: 973, 59
+  size: 79, 60
+  orig: 79, 60
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_08_D1
+  rotate: false
+  xy: 891, 61
+  size: 80, 60
+  orig: 80, 60
+  offset: 0, 0
+  index: -1
+p0007_Lily/Face_09_D1
+  rotate: false
+  xy: 1554, 356
+  size: 80, 60
+  orig: 80, 60
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_L_00_D1
+  rotate: false
+  xy: 1391, 67
+  size: 58, 71
+  orig: 58, 71
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_L_00_D2
+  rotate: false
+  xy: 1571, 101
+  size: 64, 57
+  orig: 64, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_L_00_D3
+  rotate: false
+  xy: 1382, 140
+  size: 71, 62
+  orig: 71, 62
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_L_01_D1
+  rotate: false
+  xy: 1218, 17
+  size: 42, 86
+  orig: 42, 86
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_L_01_D3
+  rotate: false
+  xy: 1304, 188
+  size: 57, 90
+  orig: 57, 90
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_R_00_D1
+  rotate: false
+  xy: 1636, 343
+  size: 52, 73
+  orig: 52, 73
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_R_00_D2
+  rotate: false
+  xy: 1566, 41
+  size: 64, 58
+  orig: 64, 58
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_R_00_D3
+  rotate: false
+  xy: 1324, 126
+  size: 56, 60
+  orig: 56, 60
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_R_01_D1
+  rotate: false
+  xy: 1556, 219
+  size: 53, 85
+  orig: 53, 85
+  offset: 0, 0
+  index: -1
+p0007_Lily/Foot_R_01_D3
+  rotate: false
+  xy: 1425, 300
+  size: 45, 87
+  orig: 45, 87
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_B2_00_D1
+  rotate: false
+  xy: 331, 207
+  size: 87, 316
+  orig: 87, 316
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_B_00_D1
+  rotate: false
+  xy: 0, 175
+  size: 161, 348
+  orig: 161, 348
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_B_00_D3
+  rotate: false
+  xy: 163, 186
+  size: 166, 337
+  orig: 166, 337
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_F_00_D1
+  rotate: false
+  xy: 499, 3
+  size: 109, 93
+  orig: 109, 93
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_F_00_D3
+  rotate: false
+  xy: 596, 99
+  size: 108, 92
+  orig: 108, 92
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_L_00_D1
+  rotate: false
+  xy: 166, 42
+  size: 88, 142
+  orig: 88, 142
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_L_00_D3
+  rotate: false
+  xy: 538, 200
+  size: 65, 127
+  orig: 65, 127
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_R_00_D1
+  rotate: false
+  xy: 605, 193
+  size: 87, 131
+  orig: 87, 131
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hair_R_00_D3
+  rotate: false
+  xy: 256, 43
+  size: 83, 141
+  orig: 83, 141
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_00_D1
+  rotate: false
+  xy: 1685, 31
+  size: 42, 55
+  orig: 42, 55
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_00_D3
+  rotate: false
+  xy: 891, 0
+  size: 39, 59
+  orig: 39, 59
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_01_D1
+  rotate: false
+  xy: 1455, 131
+  size: 43, 71
+  orig: 43, 71
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_01_D3
+  rotate: false
+  xy: 1644, 202
+  size: 43, 68
+  orig: 43, 68
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_02_D1
+  rotate: false
+  xy: 1500, 125
+  size: 69, 33
+  orig: 69, 33
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_02_D3
+  rotate: false
+  xy: 1041, 7
+  size: 70, 37
+  orig: 70, 37
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_03_D1
+  rotate: false
+  xy: 1689, 205
+  size: 56, 66
+  orig: 56, 66
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_L_03_D3
+  rotate: false
+  xy: 1493, 7
+  size: 53, 57
+  orig: 53, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_00_D1
+  rotate: false
+  xy: 1000, 0
+  size: 39, 57
+  orig: 39, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_00_D3
+  rotate: false
+  xy: 1729, 29
+  size: 38, 57
+  orig: 38, 57
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_01_D1
+  rotate: false
+  xy: 1644, 272
+  size: 43, 69
+  orig: 43, 69
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_01_D3
+  rotate: false
+  xy: 1691, 88
+  size: 38, 68
+  orig: 38, 68
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_02_D1
+  rotate: false
+  xy: 1690, 324
+  size: 59, 33
+  orig: 59, 33
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_02_D3
+  rotate: false
+  xy: 0, 0
+  size: 57, 31
+  orig: 57, 31
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_03_D1
+  rotate: false
+  xy: 1451, 67
+  size: 45, 62
+  orig: 45, 62
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hand_R_03_D3
+  rotate: false
+  xy: 1632, 35
+  size: 51, 58
+  orig: 51, 58
+  offset: 0, 0
+  index: -1
+p0007_Lily/Head_00_D1
+  rotate: false
+  xy: 801, 363
+  size: 182, 160
+  orig: 182, 160
+  offset: 0, 0
+  index: -1
+p0007_Lily/Head_00_D3
+  rotate: false
+  xy: 985, 359
+  size: 173, 164
+  orig: 173, 164
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hip_00_D1
+  rotate: false
+  xy: 694, 221
+  size: 96, 103
+  orig: 96, 103
+  offset: 0, 0
+  index: -1
+p0007_Lily/Hip_00_D3
+  rotate: false
+  xy: 1675, 425
+  size: 102, 98
+  orig: 102, 98
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_L_00_D1
+  rotate: false
+  xy: 1305, 280
+  size: 36, 104
+  orig: 36, 104
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_L_00_D3
+  rotate: false
+  xy: 1437, 204
+  size: 40, 94
+  orig: 40, 94
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_L_01_D1
+  rotate: false
+  xy: 166, 0
+  size: 61, 40
+  orig: 61, 40
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_L_01_D3
+  rotate: false
+  xy: 256, 0
+  size: 60, 41
+  orig: 60, 41
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_R_00_D1
+  rotate: false
+  xy: 1348, 24
+  size: 41, 100
+  orig: 41, 100
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_R_00_D3
+  rotate: false
+  xy: 461, 0
+  size: 36, 96
+  orig: 36, 96
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_R_01_D1
+  rotate: false
+  xy: 1636, 163
+  size: 54, 37
+  orig: 54, 37
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowarm_R_01_D3
+  rotate: false
+  xy: 1548, 2
+  size: 55, 37
+  orig: 55, 37
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_L_00_D1
+  rotate: false
+  xy: 884, 123
+  size: 56, 149
+  orig: 56, 149
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_L_00_D3
+  rotate: false
+  xy: 770, 65
+  size: 53, 154
+  orig: 53, 154
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_L_01_D1
+  rotate: false
+  xy: 403, 0
+  size: 56, 96
+  orig: 56, 96
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_L_01_D3
+  rotate: false
+  xy: 610, 11
+  size: 94, 86
+  orig: 94, 86
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_R_00_D1
+  rotate: false
+  xy: 942, 123
+  size: 56, 144
+  orig: 56, 144
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_R_00_D3
+  rotate: false
+  xy: 1054, 112
+  size: 51, 155
+  orig: 51, 155
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_R_01_D1
+  rotate: false
+  xy: 1070, 272
+  size: 90, 85
+  orig: 90, 85
+  offset: 0, 0
+  index: -1
+p0007_Lily/Lowleg_R_01_D3
+  rotate: false
+  xy: 1160, 17
+  size: 56, 86
+  orig: 56, 86
+  offset: 0, 0
+  index: -1
+p0007_Lily/Meat_Head_L_0_D1
+  rotate: false
+  xy: 1690, 359
+  size: 63, 64
+  orig: 63, 64
+  offset: 0, 0
+  index: -1
+p0007_Lily/Meat_Head_L_0_D3
+  rotate: false
+  xy: 1731, 95
+  size: 30, 61
+  orig: 30, 61
+  offset: 0, 0
+  index: -1
+p0007_Lily/Meat_Head_R_0_D1
+  rotate: false
+  xy: 1459, 4
+  size: 32, 61
+  orig: 32, 61
+  offset: 0, 0
+  index: -1
+p0007_Lily/Meat_Head_R_0_D3
+  rotate: false
+  xy: 760, 0
+  size: 61, 63
+  orig: 61, 63
+  offset: 0, 0
+  index: -1
+p0007_Lily/Mouth_00_D1
+  rotate: false
+  xy: 59, 11
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+p0007_Lily/Neck_00_D1
+  rotate: false
+  xy: 1637, 95
+  size: 52, 66
+  orig: 52, 66
+  offset: 0, 0
+  index: -1
+p0007_Lily/Neck_00_D3
+  rotate: false
+  xy: 706, 0
+  size: 52, 65
+  orig: 52, 65
+  offset: 0, 0
+  index: -1
+p0007_Lily/Ribbon_01_D1
+  rotate: false
+  xy: 1107, 122
+  size: 51, 148
+  orig: 51, 148
+  offset: 0, 0
+  index: -1
+p0007_Lily/Skirt_00_D1
+  rotate: false
+  xy: 617, 326
+  size: 182, 197
+  orig: 182, 197
+  offset: 0, 0
+  index: -1
+p0007_Lily/Skirt_00_D1_B
+  rotate: false
+  xy: 0, 33
+  size: 164, 140
+  orig: 164, 140
+  offset: 0, 0
+  index: -1
+p0007_Lily/Skirt_00_D3
+  rotate: false
+  xy: 420, 329
+  size: 195, 194
+  orig: 195, 194
+  offset: 0, 0
+  index: -1
+p0007_Lily/Skirt_00_D3_B
+  rotate: false
+  xy: 1160, 386
+  size: 178, 137
+  orig: 178, 137
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_L_00_D1
+  rotate: false
+  xy: 520, 98
+  size: 74, 100
+  orig: 74, 100
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_L_00_D3
+  rotate: false
+  xy: 1229, 284
+  size: 74, 100
+  orig: 74, 100
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_L_01_D1
+  rotate: false
+  xy: 895, 274
+  size: 80, 87
+  orig: 80, 87
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_L_01_D1_B
+  rotate: false
+  xy: 801, 274
+  size: 92, 87
+  orig: 92, 87
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_L_01_D3
+  rotate: false
+  xy: 1343, 300
+  size: 80, 87
+  orig: 80, 87
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_L_01_D3_B
+  rotate: false
+  xy: 977, 269
+  size: 91, 88
+  orig: 91, 88
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_R_00_D1
+  rotate: false
+  xy: 1230, 188
+  size: 72, 94
+  orig: 72, 94
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_R_00_D3
+  rotate: false
+  xy: 1363, 204
+  size: 72, 94
+  orig: 72, 94
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_R_01_D1
+  rotate: false
+  xy: 1479, 219
+  size: 75, 85
+  orig: 75, 85
+  offset: 0, 0
+  index: -1
+p0007_Lily/Sleeve_R_01_D3
+  rotate: false
+  xy: 1472, 306
+  size: 76, 85
+  orig: 76, 85
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_L_00_D1
+  rotate: false
+  xy: 1306, 13
+  size: 40, 111
+  orig: 40, 111
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_L_00_D3
+  rotate: false
+  xy: 1120, 21
+  size: 38, 99
+  orig: 38, 99
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_L_01_D1
+  rotate: false
+  xy: 823, 4
+  size: 61, 47
+  orig: 61, 47
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_L_01_D3
+  rotate: false
+  xy: 1550, 306
+  size: 57, 48
+  orig: 57, 48
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_R_00_D1
+  rotate: false
+  xy: 1262, 16
+  size: 42, 108
+  orig: 42, 108
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_R_00_D3
+  rotate: false
+  xy: 1611, 231
+  size: 31, 91
+  orig: 31, 91
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_R_01_D1
+  rotate: false
+  xy: 1692, 158
+  size: 56, 45
+  orig: 56, 45
+  offset: 0, 0
+  index: -1
+p0007_Lily/Uparm_R_01_D3
+  rotate: false
+  xy: 1689, 273
+  size: 59, 49
+  orig: 59, 49
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_L_00_D1
+  rotate: false
+  xy: 341, 38
+  size: 60, 167
+  orig: 60, 167
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_L_00_D3
+  rotate: false
+  xy: 706, 67
+  size: 62, 152
+  orig: 62, 152
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_L_01_D1
+  rotate: false
+  xy: 1162, 268
+  size: 65, 116
+  orig: 65, 116
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_L_01_D3
+  rotate: false
+  xy: 1554, 418
+  size: 119, 105
+  orig: 119, 105
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_R_00_D1
+  rotate: false
+  xy: 825, 119
+  size: 57, 153
+  orig: 57, 153
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_R_00_D3
+  rotate: false
+  xy: 1000, 121
+  size: 52, 146
+  orig: 52, 146
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_R_01_D1
+  rotate: false
+  xy: 403, 98
+  size: 115, 107
+  orig: 115, 107
+  offset: 0, 0
+  index: -1
+p0007_Lily/Upleg_R_01_D3
+  rotate: false
+  xy: 1160, 167
+  size: 68, 99
+  orig: 68, 99
+  offset: 0, 0
+  index: -1
+p0007_Lily/teardrop
+  rotate: false
+  xy: 1230, 176
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
