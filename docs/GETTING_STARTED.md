@@ -53,7 +53,16 @@ Run the following three scripts in sequence to generate necessary mod files usin
 3.  **Configure Injection Tool (UE4SS)**: Execute [`Scripts/setup_ue4ss.bat`](/Scripts/setup_ue4ss.bat)
     *   *Function: Initializes the mod loader environment.*
 
-## IV. Completeness Checklist
+## IV. Advanced Development: C++ Compilation
+
+If you have modified the **C++ source code** in the `Source/` or `Plugins/` directories (e.g., similar to those described in [Source Code Modifications and Alignment](/docs/DEVELOPMENT_NOTES.md)), you must recompile the project for the changes to take effect.
+
+*   **Prerequisites**: Ensure Visual Studio and C++ components are installed as per the [Core Toolchain](#2-core-toolchain-as-needed) section.
+*   **Action**: Close Unreal Editor and execute [`Scripts/Build_GameEditorTarget.bat`](/Scripts/Build_GameEditorTarget.bat).
+*   **Function**: This script invokes the Unreal Build Tool (UBT) to recompile C++ source code into editor binaries (.dll) for the Win64 platform.
+*   **Goal**: Once the compilation is complete, restart [`EnderLilies.uproject`](/EnderLilies.uproject) to load the updated code logic.
+
+## V. Completeness Checklist
 
 After completing the above steps, if your project directory contains the following artifacts, the SDK development environment has been successfully set up.
 

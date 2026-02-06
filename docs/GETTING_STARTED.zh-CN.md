@@ -53,7 +53,16 @@ git clone https://github.com/f14XuanLv/EnderLilies-More-Skins.git
 3.  **配置注入工具 (UE4SS)**: 执行 [`Scripts/setup_ue4ss.bat`](/Scripts/setup_ue4ss.bat)
     *   *功能：初始化模组加载器环境。*
 
-## 四、 完备性检查清单
+## 四、 进阶开发：C++ 源码编译
+
+如果您修改了项目 `Source/` 或 `Plugins/` 目录下的 **C++ 源代码**（例如进行了类似 [源码修改与对齐说明](/docs/DEVELOPMENT_NOTES.zh-CN.md) 中的操作），必须重新编译项目以使更改生效。
+
+*   **前提条件**：确保已安装 [核心工具链](#2-核心工具链-按需) 中的 Visual Studio 及 C++ 相关组件。
+*   **动作**：关闭虚幻编辑器，执行 [`Scripts/Build_GameEditorTarget.bat`](/Scripts/Build_GameEditorTarget.bat)。
+*   **功能**：该脚本会调用虚幻引擎编译工具（UBT），将 C++ 源码重新编译为 Win64 平台下的编辑器二进制文件（.dll）。
+*   **目标**：执行完成后，重新打开 [`EnderLilies.uproject`](/EnderLilies.uproject)，编辑器将加载最新的代码逻辑。
+
+## 五、 完备性检查清单
 
 完成上述步骤后，若您的项目目录下已包含以下产物，则说明 SDK 开发环境已搭建成功。
 
