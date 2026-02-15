@@ -25,17 +25,24 @@ The engine automation import script (Python) automatically determines your skin 
 ### 2. Advanced Skins
 *   **Use Case**: Add new accessories (cat ears, tails), completely change clothing structure, or reconstruct character action effects.
 *   **Naming Convention**: Base version is `pzzzz_Lily.png` ($zzzz \ge 0007$); derived color variants are `pzzzz_y_Lily.png` ($y \ge 1$).
-*   **Technical Limitations**:
+*   **Technical Limitations & Export Recommendations**:
     *   Requires complete Spine triple set (`.png`, `.atlas`, `.skel`).
-    *   Texture maps must be exported in **RGBA8888** format.
+    *   **Texture Format**: Must be **RGBA8888**.
     *   **Size Alignment**: The atlas size of the **Base version** is not strictly limited; however, the atlas dimensions of any **Derived variants** must be **identical** to the Base version to ensure proper texture overriding.
-    *   **Spine Export Settings Recommendation**:
-        To ensure automation scripts can properly align textures and variants can correctly overlay base version textures, please **uncheck** the following "region" settings in Spine's **Texture Packer Settings** (as shown below):
-        *   [ ] Strip whitespace X
-        *   [ ] Strip whitespace Y
-        *   [ ] Rotation
-        *   [ ] Alias
-        *   [ ] Ignore blank images
+
+    *   **Recommended Export Settings (Critical)**:
+        To ensure automation scripts can properly align textures and fix potential bone displacement/misalignment issues when switching skins, please strictly follow these settings:
+
+        **A. Binary Export Settings**:
+        ![Spine Skeleton Export Settings](/docs/images/spine_skel_export_setting.png)
+        *   **Uncheck**: Nonessential data, Clean up animations, Warnings.
+        *   *Rationale: By retaining complete keyframe data (adding data redundancy), ensures the character can correctly reset bone states during animation transitions, solving displacement issues.*
+
+        **B. Texture Packer Settings**:
+        ![Spine Texture Packing Settings](/docs/images/spine_texture_packing_setting.png)
+        *   **Uncheck (Region)**: Strip whitespace X, Strip whitespace Y, Rotation, Alias, Ignore blank images.
+        *   **Uncheck (Output)**: **Premultiply Alpha**.
+        *   *Rationale: Unchecking "Premultiply Alpha" aligns with the original game's Straight Alpha rendering pipeline; disabling region trimming and rotation ensures derived variant textures can maintain perfectly consistent atlas layout with the base version.*
         
         > [!IMPORTANT]
         > If you create advanced skin variants (color variants), please ensure their export settings are exactly the same as the base version.
@@ -78,6 +85,7 @@ If you're making advanced skins and have edited them in Spine, ensure the follow
 *   **Version**: `3.8.99` (tested compatible with 3.8.75)
 *   **Format**: Binary (`.skel`)
 *   **Texture**: Enable packing, select RGBA8888 format.
+*   **Export Settings**: Please be sure to check the settings screenshots in **[Advanced Skins Technical Recommendations](#2-advanced-skins)** to ensure the `.skel` contains complete data and textures are not premultiplied.
 
 ### Step 2: Place in Designated Directory
 Place the prepared `.png` or triple set files in the `ExtendSkins/` corresponding numbered folder according to the **[Mandatory Directory Structure](#mandatory-directory-structure)** specification in the previous section.
