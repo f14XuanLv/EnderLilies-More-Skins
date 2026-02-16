@@ -37,21 +37,19 @@ To enable automation scripts, you must associate your Unreal Engine installation
 
 ## III. Quick Start: Build and Initialize
 
-After configuring the engine path, please execute in the following order. This is not only the process of building the mod but also a comprehensive check of the development environment.
+After configuring the engine path, please execute in the following order. This project has built-in customized UE4SS that fixes compatibility issues, no additional installation needed.
 
 ### 1. Verify Project Launch
 *   **Action**: Double-click [`EnderLilies.uproject`](/EnderLilies.uproject) in the project root directory.
 *   **Goal**: Ensure successful entry into Unreal Editor without error popups. If errors occur here, please check if UE 4.26.2 is correctly installed.
 
 ### 2. Execute Automated Build
-Run the following three scripts in sequence to generate necessary mod files using sample assets in the project:
+Run the following two scripts in sequence to generate necessary mod files using sample assets in the project:
 
 1.  **Generate Mod Assets**: Execute [`Scripts/Run_CreateMoreLilySkins.bat`](/Scripts/Run_CreateMoreLilySkins.bat)
-    *   *Function: Scans the [`ExtendSkins`](/ExtendSkins/) directory, automatically performs asset conversion (PNG/Spine -> .uasset), skin classification (Simple/Advanced), data table injection, and chunking configuration.*
+    *   *Function: Scans the [`ExtendSkins`](/ExtendSkins/) directory, automatically completes asset conversion, skin classification, data table injection, and chunking configuration.*
 2.  **Package Resources (Cook & Package)**: Execute [`Scripts/package.bat`](/Scripts/package.bat)
-    *   *Function: Compiles and extracts assets, generating game-readable patch packages.*
-3.  **Configure Injection Tool (UE4SS)**: Execute [`Scripts/setup_ue4ss.bat`](/Scripts/setup_ue4ss.bat)
-    *   *Function: Initializes the mod loader environment.*
+    *   *Function: Compiles and extracts assets, generating game-readable patch packages (LogicMods).*
 
 ## IV. Advanced Development: C++ Compilation
 
@@ -71,9 +69,9 @@ After completing the above steps, if your project directory contains the followi
 *   [ ] Folder contains corresponding `.pak`, `.ucas`, and `.utoc` files.
 
 ### 2. Loader Environment (UE4SS)
-*   [ ] `UE4SS_For_More_Skins_Mod/` folder has been generated.
-*   [ ] Contains core components: `dwmapi.dll`, `UE4SS.dll`, `UE4SS-settings.ini`.
-*   [ ] `Mods/` folder has been properly initialized.
+*   [ ] `UE4SS_For_More_Skins_Mod/` folder exists immediately after cloning the project.
+*   [ ] Contains core customized components: `dwmapi.dll`, `UE4SS.dll`, `UE4SS-settings.ini`.
+*   [ ] See [`UE4SS_VERSION.md`](/UE4SS_For_More_Skins_Mod/UE4SS_VERSION.md) for specific version traceability information.
 
 ### 3. Data Validation (DataTable)
 *   [ ] `Content/_Zenith/Gameplay/Data/DT_SpineData_p0000.uasset` has been automatically updated based on `ExtendSkins` content.

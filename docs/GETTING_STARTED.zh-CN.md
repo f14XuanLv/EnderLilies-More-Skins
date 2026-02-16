@@ -37,21 +37,19 @@ git clone https://github.com/f14XuanLv/EnderLilies-More-Skins.git
 
 ## 三、 快速上手：构建与初始化
 
-在配置好引擎路径后，请按照以下顺序执行。这不仅是构建模组的过程，也是对开发环境的全链路检查。
+在配置好引擎路径后，请按照以下顺序执行。本项目已内置修复兼容性问题的定制版 UE4SS，无需额外安装。
 
 ### 1. 验证工程开启
 *   **动作**：双击项目根目录下的 [`EnderLilies.uproject`](/EnderLilies.uproject)。
 *   **目标**：确保能成功进入虚幻编辑器且无报错弹窗。如果此处报错，请检查 UE 4.26.2 是否安装正确。
 
 ### 2. 执行自动化构建
-依次运行以下三个脚本，利用项目内的示例资产生成模组必要文件：
+依次运行以下两个脚本，利用项目内的示例资产生成模组必要文件：
 
 1.  **生成模组资产**: 执行 [`Scripts/Run_CreateMoreLilySkins.bat`](/Scripts/Run_CreateMoreLilySkins.bat)
-    *   *功能：扫描 [`ExtendSkins`](/ExtendSkins/) 目录，自动完成资产转换（PNG/Spine -> .uasset）、皮肤分类（Simple/Advanced）、数据表注入及分块(Chunking)配置。*
+    *   *功能：扫描 [`ExtendSkins`](/ExtendSkins/) 目录，自动完成资产转换、皮肤分类、数据表注入及分块配置。*
 2.  **打包资源 (Cook & Package)**: 执行 [`Scripts/package.bat`](/Scripts/package.bat)
-    *   *功能：编译并提取资产，生成游戏可读取的补丁包。*
-3.  **配置注入工具 (UE4SS)**: 执行 [`Scripts/setup_ue4ss.bat`](/Scripts/setup_ue4ss.bat)
-    *   *功能：初始化模组加载器环境。*
+    *   *功能：编译并提取资产，生成游戏可读取的补丁包（LogicMods）。*
 
 ## 四、 进阶开发：C++ 源码编译
 
@@ -71,9 +69,9 @@ git clone https://github.com/f14XuanLv/EnderLilies-More-Skins.git
 *   [ ] 文件夹内包含对应的 `.pak`、`.ucas` 与 `.utoc` 文件。
 
 ### 2. 加载器环境 (UE4SS)
-*   [ ] `UE4SS_For_More_Skins_Mod/` 文件夹已生成。
-*   [ ] 内部包含核心组件：`dwmapi.dll`、`UE4SS.dll`、`UE4SS-settings.ini`。
-*   [ ] `Mods/` 文件夹已正确初始化。
+*   [ ] `UE4SS_For_More_Skins_Mod/` 文件夹在克隆项目后即刻存在。
+*   [ ] 内部包含核心定制组件：`dwmapi.dll`、`UE4SS.dll`、`UE4SS-settings.ini`。
+*   [ ] 具体的版本溯源信息见内部的 [`UE4SS_VERSION.md`](/UE4SS_For_More_Skins_Mod/UE4SS_VERSION.md)。
 
 ### 3. 数据校验 (DataTable)
 *   [ ] `Content/_Zenith/Gameplay/Data/DT_SpineData_p0000.uasset` 已根据 `ExtendSkins` 内容完成自动更新。

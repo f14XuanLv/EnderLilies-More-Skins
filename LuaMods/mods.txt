@@ -1,5 +1,0 @@
-﻿; --- DO NOT REMOVE THIS LINE (Fixes UTF-8 BOM detection) ---
-BPModLoaderMod : 1
-BPML_GenericFunctions : 1
-SwitchSkinMod : 1
-
