@@ -70,6 +70,42 @@
 
 ---
 
+## 角色技能修改（额外内容）
+
+### 黑色骑士（快捷键 Alt + X）
+
+#### 平A
+
+**艾尔登法环 · 黄金律法风格 · 神圣属性附魔**
+
+<img src="docs/images/gif/S5000_Basic_Apply1_ABCDE_Ground.gif" height="450">
+
+<img src="docs/images/s5000_Unknown/S5000_Basic_Apply1_B_Ground.png" height="250"> <img src="docs/images/s5000_Unknown/S5000_Basic_Apply1_C_Ground.png" height="250">
+
+---
+
+### 骑士长尤利乌斯（快捷键 Alt + Z 轮换）
+
+#### 奥义
+
+**东方Project · 魔理沙 · 恋符「Master Spark」**
+
+<img src="docs/images/s5030_Leader/S5030_Sp_Apply1.png" height="350">
+
+---
+
+**艾尔登法环 · 黑夜魔法风格 · 黑夜彗星亚兹勒**
+
+<img src="docs/images/s5030_Leader/S5030_Sp_Apply2.png" height="350">
+
+---
+
+**镭射炮 · 苍蓝色调**
+
+<img src="docs/images/s5030_Leader/S5030_Sp_Apply3.png" height="350">
+
+---
+
 ## 🛠️ 模组开发 (SDK & Development)
 
 如果您是创作者，希望制作并发布属于自己的莉莉皮肤，请参阅以下全套开发套件与指引：

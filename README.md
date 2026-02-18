@@ -70,6 +70,42 @@ Extended skins with independent skeletons and animation capabilities created thr
 
 ---
 
+## Character Ability Modifications (Additional Content)
+
+### Black Knight (Hotkey: Alt + X)
+
+#### Basic Attack
+
+**ELDEN RING · Golden Order Style · Holy Damage Enchantment**
+
+<img src="docs/images/gif/S5000_Basic_Apply1_ABCDE_Ground.gif" height="450">
+
+<img src="docs/images/s5000_Unknown/S5000_Basic_Apply1_B_Ground.png" height="250"> <img src="docs/images/s5000_Unknown/S5000_Basic_Apply1_C_Ground.png" height="250">
+
+---
+
+### Knight Captain Julius (Hotkey: Alt + Z to Cycle)
+
+#### Ultimate Skill
+
+**Touhou Project · Marisa · Love Sign "Master Spark"**
+
+<img src="docs/images/s5030_Leader/S5030_Sp_Apply1.png" height="350">
+
+---
+
+**ELDEN RING · Night Sorcery Style · Night Comet Azur**
+
+<img src="docs/images/s5030_Leader/S5030_Sp_Apply2.png" height="350">
+
+---
+
+**Laser Cannon · Azure Tone**
+
+<img src="docs/images/s5030_Leader/S5030_Sp_Apply3.png" height="350">
+
+---
+
 ## 🛠️ Mod Development (SDK & Development)
 
 If you're a creator who wants to create and publish your own Lily skins, please refer to the following complete development kit and guides:
