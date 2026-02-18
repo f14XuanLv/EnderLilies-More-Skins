@@ -2,3 +2,5 @@
 BPModLoaderMod : 1
 BPML_GenericFunctions : 1
 SwitchSkinMod : 1
+ParticleSystemManager : 1
+AbilitiesMod : 1
