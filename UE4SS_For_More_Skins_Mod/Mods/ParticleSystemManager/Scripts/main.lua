@@ -1,0 +1,1 @@
+print("[ParticleSystemManager] 核心类库已就绪，等待被引用。")
