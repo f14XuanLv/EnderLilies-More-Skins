@@ -208,7 +208,18 @@ local function SwitchSkin(index)
                 paramComp:SetSkinLevel(skin.level)
                 paramComp.SkinLevel = skin.level
             end
-            animComp:ReplaceSpineData(newAtlas, newData, nil)
+            
+            -- 统一使用 p0001 的 NotifyData
+            local notifyPath = "/Game/_Zenith/Characters/p0001_Lily/p0001_Lily-notify.p0001_Lily-notify"
+            LoadAsset(notifyPath)
+            local notifyData = StaticFindObject(notifyPath)
+
+            if notifyData and notifyData:IsValid() then
+                animComp:ReplaceSpineData(newAtlas, newData, notifyData)
+            else
+                print("[Notify] Failed to load p0001 notify, using nil")
+                animComp:ReplaceSpineData(newAtlas, newData, nil)
+            end
         end
     else
         -- Only cycle variants when staying on the same character
